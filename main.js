@@ -58,7 +58,12 @@ function celsiusToFahrenheit(temperature){
     return (Number(temperature) * 9/5) + 32;
 }
 
-// WHEN THE USER CLICKS ON THE TEMPERATURE ELEMENET (((CANNOT FIGURE OUT OMFG KILL ME)))
+// F to C conversion (C = (F - 32) * 5/9)
+function fahrenheitToCelsius(tempature) {
+    return (parseInt(temperature) - 32 * 5/9)
+}
+
+// WHEN THE USER CLICKS ON THE TEMP ELEMENT CELSIUS WILL SWITCH TO FAHRENHEIT
 
 const tempElement = document.querySelector('.temp');
 tempElement.addEventListener('keypress', setQuery);
@@ -68,25 +73,12 @@ tempElement.addEventListener("click", function(){
     const tempArray = event.target.innerText.split("°");
 
     if (tempArray[1] === ("c") ){
-        let fahrenheit = celsiusToFahrenheit(tempArray[0])
-         
+        let fahrenheit = celsiusToFahrenheit(tempArray[0]);
         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
     }
     else {
         let celsius = fahrenheitToCelsius(tempArray[0])
         tempElement.innerHTML = `${celsius}°<span>c</span>`;
 
-    }
-
-    // if(tempElement.value === undefined) return;
-    
-    // if(tempElement.unit == "celsius"){
-    //     let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
-    //     fahrenheit = Math.floor(fahrenheit);
-    
-    //     weather.temperature.unit = "fahrenheit";
-    // }else{
-    //     tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
-    //     weather.temperature.unit = "celsius"
-    // }
+    };
 });
