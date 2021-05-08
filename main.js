@@ -82,3 +82,8 @@ tempElement.addEventListener("click", function(){
 
     };
 });
+
+// Button Like
+document.querySelector('button').addEventListener('click', (event) =>{
+        event.target.textContent = 'You Liked This Page, Thank you!'
+});
