@@ -103,7 +103,6 @@ main {
     text-align: center;
     display: inline-block;
     font-size: 20px;
-    position: relative; top:150px
+    position: relative; top:100px
   }
 
-  /* document.querySelector("body > div > main > div.like-button > button") */

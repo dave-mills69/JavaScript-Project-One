@@ -13,7 +13,7 @@ const api = {
       getResults(searchbox.value);
     }
   }
-  
+  // keycode == 13 (13 being the return or enter button)
   function getResults (query) {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(weather => {
@@ -24,10 +24,11 @@ const api = {
   function displayResults (weather) {
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
-  
+
     let now = new Date();
     let date = document.querySelector('.location .date');
     date.innerText = dateBuilder(now);
+   
   
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
@@ -82,6 +83,8 @@ tempElement.addEventListener("click", function(){
 
     };
 });
+
+
 
 // Button Like
 document.querySelector('button').addEventListener('click', (event) =>{
