@@ -1,9 +1,10 @@
 // Your API key is 2821738aa1b5bf771f2157203f0f1218
 
+
 const api = {
     key: "2821738aa1b5bf771f2157203f0f1218",
     base: "https://api.openweathermap.org/data/2.5/"
-  }
+}
   
   const searchbox = document.querySelector('.search-box');
   searchbox.addEventListener('keypress', setQuery);
@@ -38,7 +39,7 @@ const api = {
   
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
-  }
+  };
   
   function dateBuilder (d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -50,19 +51,20 @@ const api = {
     let year = d.getFullYear();
   
     return `${day} ${date} ${month} ${year}`;
-  }
+  };
+
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const monthsY = months.filter(month => month.slice(-1) === "y");
+
 
 
 
 // C to F conversion
 function celsiusToFahrenheit(temperature){
-    return (Number(temperature) * 9/5) + 32;
+    return Math.floor(Number(temperature) * 9/5) + 32;
 }
 
-// F to C conversion (C = (F - 32) * 5/9)
-function fahrenheitToCelsius(tempature) {
-    return (parseInt(temperature) - 32 * 5/9)
-}
+
 
 // WHEN THE USER CLICKS ON THE TEMP ELEMENT CELSIUS WILL SWITCH TO FAHRENHEIT
 
@@ -73,14 +75,13 @@ tempElement.addEventListener("click", function(){
     
     const tempArray = event.target.innerText.split("°");
 
-    if (tempArray[1] === ("c") ){
+    if (tempArray[1] === "c" ){
         let fahrenheit = celsiusToFahrenheit(tempArray[0]);
         tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
     }
-    else {
+    else if (tempArray[1] === "F"){
         let celsius = fahrenheitToCelsius(tempArray[0])
         tempElement.innerHTML = `${celsius}°<span>c</span>`;
-
     };
 });
 
@@ -90,3 +91,4 @@ tempElement.addEventListener("click", function(){
 document.querySelector('button').addEventListener('click', (event) =>{
         event.target.textContent = 'You Liked This Page, Thank you!'
 });
+
